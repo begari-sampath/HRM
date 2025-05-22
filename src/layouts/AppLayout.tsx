@@ -7,7 +7,7 @@ import LeavesPage from '../pages/leaves/LeavesPage';
 import AttendancePage from '../pages/attendance/AttendancePage';
 import PerformancePage from '../pages/performance/PerformancePage';
 import DocumentsPage from '../pages/documents/DocumentsPage';
-
+import ProfilePage from '../components/dashboard/profilepage';
 interface AppLayoutProps {
   user: User;
   onLogout: () => void;
@@ -34,6 +34,8 @@ const AppLayout: React.FC<AppLayoutProps> = ({ user, onLogout }) => {
         return <PerformancePage />;
       case '/documents':
         return <DocumentsPage />;
+        case '/profile':
+          return <ProfilePage/>
       default:
         return (
           <div className="flex items-center justify-center min-h-screen">

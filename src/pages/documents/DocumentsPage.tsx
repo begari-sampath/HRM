@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import { FileText, Download, Upload, Folder } from 'lucide-react';
-
+import { useNavigate } from 'react-router-dom';
 const DocumentsPage: React.FC = () => {
   const documentCategories = [
     {
@@ -54,6 +54,10 @@ const DocumentsPage: React.FC = () => {
       updatedAt: '2024-03-13'
     }
   ];
+  const navigate = useNavigate();
+  const handleRedirect = () => {
+    navigate('/upload');
+  };
 
   return (
     <div className="p-6">
@@ -62,10 +66,10 @@ const DocumentsPage: React.FC = () => {
           <h1 className="text-2xl font-bold text-gray-900">Documents</h1>
           <p className="text-gray-600">Manage and access company documents</p>
         </div>
-        <Button variant="primary">
-          <Upload size={20} className="mr-2" />
-          Upload Document
-        </Button>
+         <Button variant="primary" onClick={handleRedirect}>
+      <Upload size={20} className="mr-2" />
+      Upload Document
+    </Button>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
